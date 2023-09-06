@@ -28,4 +28,4 @@ variable "alternative_names" {
 }
 
 # alb variables
-# variable "target_type" {}
+variable "target_type" {}
