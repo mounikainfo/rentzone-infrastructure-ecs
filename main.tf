@@ -94,7 +94,7 @@ module "ecs_task_execution_role" {
   environment          = local.environment
 }
 
-/* # create ecs cluster, task defination
+/* # create ecs cluster, task defination and service
 module "ecs" {
   source = "git@github.com:mounikainfo/terraform-modules.git//ecs"
   project_name = local.project_name
