@@ -111,10 +111,24 @@ module "ecs" {
   alb_target_group_arn         = module.application_load_balancer.alb_target_group_arn
 }
 
-# created auto scalling group
+# create auto scalling group
 module "ecs-asg" {
   source       = "git@github.com:mounikainfo/terraform-modules.git//asg-ecs"
   project_name = local.project_name
   environment  = local.environment
   ecs_service  = module.ecs.ecs_service
+}
+
+# create records in route53
+module "route53" {
+  source = "git@github.com:mounikainfo/terraform-modules.git//route-53"
+domain_name = module.ssl_certificate.domain_name
+record_name = var.record_name
+application_load_balancer_dns_name = module.application_load_balancer.application_load_balancer_dns_name
+application_load_balancer_zone_id = module.application_load_balancer.application_load_balancer_zone_id 
+}
+
+# print the website url
+output "website_url" {
+  value = join("", ["https://", var.record_name, ".", var.var.domain_name])
 }
