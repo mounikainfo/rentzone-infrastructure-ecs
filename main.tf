@@ -119,14 +119,14 @@ module "ecs_asg" {
   ecs_service  = module.ecs.ecs_service
 }
 
-# create records in route53
+/* # create records in route53
 module "route_53" {
   source                             = "git@github.com:mounikainfo/terraform-modules.git//route-53"
   domain_name                        = module.ssl_certificate.domain_name
   record_name                        = var.record_name
   application_load_balancer_dns_name = module.application_load_balancer.application_load_balancer_dns_name
   application_load_balancer_zone_id  = module.application_load_balancer.application_load_balancer_zone_id
-}
+} */
 
 /* # print the website url
 output "website_url" {
