@@ -39,5 +39,5 @@ variable "architecture" {}
 variable "container_image" {}
 
 
-# route 53 variables
+# route-53 variables
 variable "record_name" {}

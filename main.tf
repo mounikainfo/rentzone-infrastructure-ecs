@@ -112,7 +112,7 @@ module "ecs" {
 }
 
 # create auto scalling group
-module "ecs-asg" {
+module "ecs_asg" {
   source       = "git@github.com:mounikainfo/terraform-modules.git//asg-ecs"
   project_name = local.project_name
   environment  = local.environment
@@ -120,7 +120,7 @@ module "ecs-asg" {
 }
 
 # create records in route53
-module "route53" {
+module "route_53" {
   source                             = "git@github.com:mounikainfo/terraform-modules.git//route-53"
   domain_name                        = module.ssl_certificate.domain_name
   record_name                        = var.record_name
@@ -128,7 +128,7 @@ module "route53" {
   application_load_balancer_zone_id  = module.application_load_balancer.application_load_balancer_zone_id
 }
 
-# print the website url
+/* # print the website url
 output "website_url" {
   value = join("", ["https://", var.record_name, ".", var.domain_name])
-}
+} */
