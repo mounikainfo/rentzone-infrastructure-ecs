@@ -113,8 +113,8 @@ module "ecs" {
 
 # created auto scalling group
 module "ecs-asg" {
-  source = "git@github.com:mounikainfo/terraform-modules.git//asg-ecs"
-project_name = local.project_name
-environment = local.environment
-ecs_service = module.ecs.ecs_service
+  source       = "git@github.com:mounikainfo/terraform-modules.git//asg-ecs"
+  project_name = local.project_name
+  environment  = local.environment
+  ecs_service  = module.ecs.ecs_service
 }
