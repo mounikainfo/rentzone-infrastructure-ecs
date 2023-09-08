@@ -128,7 +128,7 @@ module "route_53" {
   application_load_balancer_zone_id  = module.application_load_balancer.application_load_balancer_zone_id
 }
 
-/* # print the website url
+# print the website url
 output "website_url" {
   value = join("", ["https://", var.record_name, ".", var.domain_name])
-} */
+}
