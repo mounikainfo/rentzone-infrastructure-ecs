@@ -40,4 +40,4 @@ variable "container_image" {}
 
 
 # route-53 variables
-# variable "record_name" {}
+variable "record_name" {}
