@@ -118,7 +118,7 @@ module "ecs_asg" {
   environment  = local.environment
   ecs_service  = module.ecs.ecs_service
 }
-
+ */
 # create records in route53
 module "route_53" {
   source                             = "git@github.com:mounikainfo/terraform-modules.git//route-53"
@@ -132,4 +132,3 @@ module "route_53" {
 output "website_url" {
   value = join("", ["https://", var.record_name, ".", var.domain_name])
 }
- */
