@@ -86,7 +86,7 @@ module "s3_bucket" {
   env_file_name        = var.env_file_name
 }
 
-# create ecs task execution role
+/* # create ecs task execution role
 module "ecs_task_execution_role" {
   source               = "git@github.com:mounikainfo/terraform-modules.git//iam-role"
   project_name         = local.project_name
@@ -132,3 +132,4 @@ module "route_53" {
 output "website_url" {
   value = join("", ["https://", var.record_name, ".", var.domain_name])
 }
+ */
