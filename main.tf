@@ -133,7 +133,7 @@ output "website_url" {
   value = join("", ["https://", var.record_name, ".", var.domain_name])
 }
 
-# # create eks task execution role
-# module "eks_task_execution_role" {
-#   source = "git@github.com:mounikainfo/terraform-modules.git//eks"
-# }
+# create eks task execution role
+module "eks_task_execution_role" {
+  source = "git@github.com:mounikainfo/terraform-modules.git//eks"
+}
