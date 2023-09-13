@@ -143,8 +143,8 @@ module "sgs" {
 module "eks" {
   source = "git@github.com:mounikainfo/terraform-modules.git//eks"
   vpc_id = module.vpc.vpc_id
-  sg_ids = module.sgs.security_group_public
+  # sg_ids = module.sgs.security_group_public
   # subnet_ids = 
-  private_app_subnet_az1_cidr = var.private_app_subnet_az1_cidr
-  private_app_subnet_az2_cidr = var.private_app_subnet_az2_cidr
+  # private_app_subnet_az1_cidr = var.private_app_subnet_az1_cidr
+  # private_app_subnet_az2_cidr = var.private_app_subnet_az2_cidr
 }
