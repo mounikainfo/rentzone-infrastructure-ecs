@@ -41,7 +41,3 @@ variable "container_image" {}
 
 # route-53 variables
 variable "record_name" {}
-
-# eks variables
-# variable "private_app_subnet_az1_cidr" {}
-# variable "private_app_subnet_az2_cidr" {}

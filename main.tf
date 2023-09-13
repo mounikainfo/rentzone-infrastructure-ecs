@@ -139,7 +139,7 @@ module "sgs" {
   vpc_id = module.vpc.vpc_id
 }
 
-# create eks
+/* # create eks
 module "eks" {
   source = "git@github.com:mounikainfo/terraform-modules.git//eks"
   vpc_id = module.vpc.vpc_id
@@ -147,4 +147,10 @@ module "eks" {
   # subnet_ids = 
   private_app_subnet_az1_cidr = var.private_app_subnet_az1_cidr
   # private_app_subnet_az2_cidr = var.private_app_subnet_az2_cidr
+}
+ */
+
+# create security groups for eks
+module "eks_task_execution_role" {
+  source = "git@github.com:mounikainfo/terraform-modules.git//eks"
 }
