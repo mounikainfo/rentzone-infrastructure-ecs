@@ -136,5 +136,15 @@ output "website_url" {
 # create security groups for eks
 module "sgs" {
   source = "git@github.com:mounikainfo/terraform-modules.git//sg-eks"
-  vpc_id                = module.vpc.vpc_id
+  vpc_id = module.vpc.vpc_id
+}
+
+# create eks
+module "eks" {
+  source = "git@github.com:mounikainfo/terraform-modules.git//eks"
+  vpc_id = module.vpc.vpc_id
+  sg_ids = module.sgs.security_group_public
+  # subnet_ids = 
+  private_app_subnet_az1_cidr = var.private_app_subnet_az1_cidr
+  private_app_subnet_az2_cidr = var.private_app_subnet_az2_cidr
 }
