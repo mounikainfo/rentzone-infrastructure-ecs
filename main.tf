@@ -144,13 +144,14 @@ module "myeks" {
   source                    = "git@github.com:mounikainfo/terraform-modules.git//eks"
   private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
   private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
-  cluster_name              = var.cluster_name
+
 }
 
-# create ekd nodes 
-module "nodes" {
+# create security groups for eks
+module "myeksnodes" {
   source                    = "git@github.com:mounikainfo/terraform-modules.git//eks-nodes"
   private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
   private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
-  cluster_name              = var.cluster_name
-} 
+  demo_name                 = var.demo_name
+
+}
