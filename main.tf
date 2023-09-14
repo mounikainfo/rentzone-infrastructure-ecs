@@ -43,7 +43,7 @@ module "security_group" {
   ssh_ip       = var.ssh_ip
 }
 
-# launch rds instance
+/* # launch rds instance
 module "rds" {
   source                       = "git@github.com:mounikainfo/terraform-modules.git//rds"
   project_name                 = local.project_name
@@ -56,7 +56,7 @@ module "rds" {
   database_instance_identifier = var.database_instance_identifier
   muti_az_deployment           = var.muti_az_deployment
   database_security_group_id   = module.security_group.database_security_group_id
-}
+} */
 
 # request ssl certificate
 module "ssl_certificate" {
@@ -141,7 +141,7 @@ module "sgs" {
 
 # create security groups for eks
 module "myeks" {
-  source = "git@github.com:mounikainfo/terraform-modules.git//eks"
-  private_app_subnet_az1_id =  var.private_app_subnet_az1_id
-  private_app_subnet_az2_id =  var.private_app_subnet_az2_id
+  source                    = "git@github.com:mounikainfo/terraform-modules.git//eks"
+  private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
+  private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
 }
