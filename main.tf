@@ -65,7 +65,7 @@ module "ssl_certificate" {
   alternative_names = var.alternative_names
 }
 
-# create application load balancer
+/* # create application load balancer
 module "application_load_balancer" {
   source                = "git@github.com:mounikainfo/terraform-modules.git//alb"
   project_name          = local.project_name
@@ -76,7 +76,7 @@ module "application_load_balancer" {
   target_type           = var.target_type
   vpc_id                = module.vpc.vpc_id
   certificate_arn       = module.ssl_certificate.certificate_arn
-}
+} */
 
 # create s3 bucket
 module "s3_bucket" {
