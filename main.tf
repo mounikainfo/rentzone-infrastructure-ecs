@@ -142,8 +142,6 @@ module "sgs" {
 # create security groups for eks
 module "myeks" {
   source                       = "git@github.com:mounikainfo/terraform-modules.git//eks"
-  project_name                 = local.project_name
-  environment                  = local.environment
   private_app_subnet_az1_id    = module.vpc.private_app_subnet_az1_id
   private_app_subnet_az2_id    = module.vpc.private_app_subnet_az2_id
 }
