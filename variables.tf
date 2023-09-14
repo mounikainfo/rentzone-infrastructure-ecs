@@ -43,6 +43,6 @@ variable "container_image" {}
 variable "record_name" {}
 
 
-variable "cluster_name" {
+variable "demo_name" {
 
 }

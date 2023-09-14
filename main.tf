@@ -148,7 +148,7 @@ module "myeks" {
 }
 
 # create security groups for eks
-module "myeksnodes" {
+module "nodes" {
   source                    = "git@github.com:mounikainfo/terraform-modules.git//eks-nodes"
   private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
   private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
