@@ -43,6 +43,3 @@ variable "container_image" {}
 variable "record_name" {}
 
 
-variable "my-eks" {
-
-}

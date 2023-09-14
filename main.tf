@@ -141,17 +141,10 @@ module "sgs" {
 
 # create security groups for eks
 module "myeks" {
-  source                    = "git@github.com:mounikainfo/terraform-modules.git//eks"
-  private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
-  private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
-  my-eks       = var.my-eks
+  source                       = "git@github.com:mounikainfo/terraform-modules.git//eks"
+  project_name                 = local.project_name
+  environment                  = local.environment
+  private_app_subnet_az1_id    = module.vpc.private_app_subnet_az1_id
+  private_app_subnet_az2_id    = module.vpc.private_app_subnet_az2_id
 }
 
-/* # create security groups for eks
-module "nodes" {
-  source                    = "git@github.com:mounikainfo/terraform-modules.git//eks-nodes"
-  private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
-  private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
-  demo_name                 = var.demo_name
-
-} */
