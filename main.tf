@@ -150,7 +150,9 @@ module "eks" {
 }
  */
 
-# create security groups for eks
-module "eks_task_execution_role" {
+create security groups for eks
+module "myeks" {
   source = "git@github.com:mounikainfo/terraform-modules.git//eks"
+  private_app_subnet_az1_id =  var.private_app_subnet_az1_id
+  private_app_subnet_az2_id =  var.private_app_subnet_az2_id
 }
