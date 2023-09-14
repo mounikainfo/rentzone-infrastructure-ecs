@@ -139,13 +139,11 @@ module "sgs" {
   vpc_id = module.vpc.vpc_id
 }
 
-/* # create security groups for eks
+# create security groups for eks
 module "myeks" {
   source                    = "git@github.com:mounikainfo/terraform-modules.git//eks"
   private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
   private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
-  public_subnet_az2_id      = module.vpc.public_subnet_az2_id
-  public_subnet_az1_id      = module.vpc.public_subnet_az1_id
   cluster_name              = var.cluster_name
 }
 
@@ -155,4 +153,4 @@ module "nodes" {
   private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
   private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
   cluster_name              = var.cluster_name
-} */
+} 
