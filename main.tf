@@ -144,9 +144,9 @@ module "myeks" {
   source                    = "git@github.com:mounikainfo/terraform-modules.git//eks"
   private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
   private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
-  public_subnet_az2_id = module.vpc.public_subnet_az2_id
-  public_subnet_az1_id = module.vpc.public_subnet_az1_id
-  cluster_name = var.cluster_name
+  public_subnet_az2_id      = module.vpc.public_subnet_az2_id
+  public_subnet_az1_id      = module.vpc.public_subnet_az1_id
+  cluster_name              = var.cluster_name
 }
 
 # create ekd nodes 
@@ -154,5 +154,5 @@ module "nodes" {
   source                    = "git@github.com:mounikainfo/terraform-modules.git//eks-nodes"
   private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
   private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
-  cluster_name = module.myeks.cluster_name
+  cluster_name              = module.myeks.cluster_name
 }

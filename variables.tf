@@ -44,5 +44,5 @@ variable "record_name" {}
 
 
 variable "cluster_name" {
-  
+
 }
