@@ -119,7 +119,7 @@ module "ecs_asg" {
   ecs_service  = module.ecs.ecs_service
 }
  */
-# create records in route53
+/* # create records in route53
 module "route_53" {
   source                             = "git@github.com:mounikainfo/terraform-modules.git//route-53"
   domain_name                        = module.ssl_certificate.domain_name
@@ -131,7 +131,7 @@ module "route_53" {
 # print the website url
 output "website_url" {
   value = join("", ["https://", var.record_name, ".", var.domain_name])
-}
+} */
 
 # create security groups for eks
 module "sgs" {
@@ -142,6 +142,13 @@ module "sgs" {
 # create security groups for eks
 module "myeks" {
   source                    = "git@github.com:mounikainfo/terraform-modules.git//eks"
+  private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
+  private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
+}
+
+# create ekd nodes 
+module "nodes" {
+  source = "git@github.com:mounikainfo/terraform-modules.git//eks-nodes"
   private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
   private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
 }
