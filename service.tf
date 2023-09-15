@@ -9,7 +9,7 @@ resource "kubernetes_service" "service" {
     }
     port {
       port        = 80
-      target_port = web
+      target_port = 8080
     }
   }
 }
