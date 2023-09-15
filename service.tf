@@ -1,16 +1,15 @@
-resource "kubernetes_api_service" "example" {
+resource "kubernetes_service" "service" {
   metadata {
-    name = "terraform-example"
+    name = "terraform-example1"
   }
   spec {
-    selector {
-      app = "MyExampleApp"
-    }
-    port {
-      port        = 8080
-      target_port = 80
-    }
-
     type = "LoadBalancer"
+    selector = {
+      test = "MyExampleApp"
+    }
+    ports {
+      port        = 80
+      target_port = web
+    }
   }
 }
