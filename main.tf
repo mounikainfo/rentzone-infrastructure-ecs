@@ -141,17 +141,19 @@ module "sgs" {
 
 # create eks
 module "myeks" {
-  source                       = "git@github.com:mounikainfo/terraform-modules.git//eks"
-  private_app_subnet_az1_id    = module.vpc.private_app_subnet_az1_id
-  private_app_subnet_az2_id    = module.vpc.private_app_subnet_az2_id
+  source                    = "git@github.com:mounikainfo/terraform-modules.git//eks"
+  private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
+  private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
 }
 
-/* # create eks nodegroup
+# create eks nodegroup
 module "nodegroup" {
-  source                       = "git@github.com:mounikainfo/terraform-modules.git//nodegroup"
-  private_app_subnet_az1_id    = module.vpc.private_app_subnet_az1_id
-  private_app_subnet_az2_id    = module.vpc.private_app_subnet_az2_id
-  cluster_name = module.myeks.cluster_name
+  source                    = "git@github.com:mounikainfo/terraform-modules.git//nodegroup"
+  private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
+  private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
+  cluster_name              = module.myeks.cluster_name
 }
- */
+
+
+
 
