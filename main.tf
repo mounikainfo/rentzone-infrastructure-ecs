@@ -154,11 +154,6 @@ module "nodegroup" {
   cluster_name              = module.myeks.cluster_name
 }
 
-#dep file
-module "depfile" {
-  source = "git@github.com:mounikainfo/terraform-modules.git//depfile"
-}
-
 
 
 
