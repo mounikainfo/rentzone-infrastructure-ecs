@@ -7,7 +7,7 @@ resource "kubernetes_service" "service" {
     selector = {
       test = "MyExampleApp"
     }
-    ports {
+    port {
       port        = 80
       target_port = web
     }
