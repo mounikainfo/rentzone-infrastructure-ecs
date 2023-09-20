@@ -1,11 +1,11 @@
 resource "kubernetes_service" "service" {
   metadata {
-    name = "terraform-example1"
+    name = "webappsvc"
   }
   spec {
     type = "LoadBalancer"
     selector = {
-      test = "MyExampleApp"
+      test = "webapp"
     }
     port {
       port        = 80

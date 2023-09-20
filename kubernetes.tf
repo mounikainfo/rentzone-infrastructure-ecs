@@ -1,31 +1,35 @@
 resource "kubernetes_deployment" "example" {
   metadata {
-    name = "terraform-example"
-    labels = {
-      test = "MyExampleApp"
-    }
+    name = "webappdeployment"
+    /* labels = {
+      test = "my-app"
+    } */
   }
 
   spec {
-    replicas = 2
+    replicas = 3
 
     selector {
       match_labels = {
-        test = "MyExampleApp"
+        test = "webapp"
       }
     }
 
     template {
       metadata {
+        # name = mypod
         labels = {
-          test = "MyExampleApp"
+          test = "webapp"
         }
       }
 
       spec {
         container {
           image = "nginx:1.21.6"
-          name  = "example"
+          name  = "nginx-container"
+          port {
+            container_port = 80
+          }
 
           resources {
             limits = {
