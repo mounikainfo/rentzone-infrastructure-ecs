@@ -131,8 +131,9 @@ module "route_53" {
 # print the website url
 output "website_url" {
   value = join("", ["https://", var.record_name, ".", var.domain_name])
-} */
-
+}
+ */
+ 
 # create security groups for eks
 module "sgs" {
   source = "git@github.com:mounikainfo/terraform-modules.git//sg-eks"
@@ -186,10 +187,10 @@ module "alb_controller" {
   k8s_cluster_name = data.aws_eks_cluster.target.name
 }
  */
-module "s3-flow" {
+/* module "s3-flow" {
   source = "git@github.com:mounikainfo/terraform-modules.git//s3-store"
   project_name = local.project_name
   my_log_test_name = var.my_log_test_name
-}
+} */
 
 
