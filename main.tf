@@ -154,6 +154,13 @@ module "nodegroup" {
   cluster_name              = module.myeks.cluster_name
 }
 
+/* module "eks_example_lb" {
+  source  = "https://github.com/Young-ook/terraform-aws-eks"
+  # version = "1.7.0"
+  # insert the 1 required variable here
+}
+ */
+
 
 
 
