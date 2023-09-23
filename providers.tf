@@ -37,6 +37,8 @@ provider "kubernetes" {
   config_context = "arn:aws:eks:ap-south-1:301167228985:cluster/stademo"
 }
 
+eks_cluster_name = data.terraform_remote_state.eks.outputs.cluster_id
+
 
 /* terraform {
   required_version = ">= 1.0.0"
