@@ -145,7 +145,11 @@ module "myeks" {
   source                    = "git@github.com:mounikainfo/terraform-modules.git//eks"
   private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
   private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
-  # cluster_name = var.cluster_name
+  cluster_endpoint_private_access = var.cluster_endpoint_private_access
+  cluster_endpoint_public_access = var.cluster_endpoint_public_access
+  cluster_endpoint_public_access_cidrs = var.cluster_endpoint_public_access_cidrs
+  cluster_service_ipv4_cidr = var.cluster_service_ipv4_cidr
+  cluster_version = var.cluster_version
 }
 
 # create eks nodegroup

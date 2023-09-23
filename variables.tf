@@ -42,5 +42,11 @@ variable "container_image" {}
 # route-53 variables
 variable "record_name" {}
 
+# eks variables
+variable "cluster_endpoint_private_access" {}
+variable "cluster_endpoint_public_access" {}
+variable "cluster_endpoint_public_access_cidrs" {}
+variable "cluster_service_ipv4_cidr" {}
+variable "cluster_version" {}
 
 
