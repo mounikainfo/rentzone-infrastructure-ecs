@@ -7,12 +7,15 @@ resource "null_resource" "json_file" {
         command = "curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json"
     }
 }
+
 # Parse the JSON and create the IAM policy
 resource "aws_iam_policy" "lbc_iam_policy" {
   name        = "AWSLoadBalancerControllerIAMPolicy"
   description = "AWS Load Balancer Controller IAM policy"
   policy = file("C:/Users/anves/rentzone-infrastructure-ecs/iam_policy.json")
 } 
+
+
 # data "aws_caller_identity" "current" {}
 # aws_eks_cluster.demo.identity[0].oidc[0].issuer
 
