@@ -31,19 +31,18 @@ resource "aws_iam_role" "lbc_iam_role" {
         "Action" = "sts:AssumeRoleWithWebIdentity",
         "Effect" = "Allow",
         "principal": {
-          "Federated": "${data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_arn}"
-        }
+          "Federated": "arn:aws:iam::301167228985:role/eks-cluster-demo:oidc-provider/oidc.eks.ap-south-1.amazonaws.com/id/A1B9099EA5B93672CC683D799A83E679"
+        },
         "conditions": {
           "StringEquals": {
-            "${data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_extract_from_arn}:aud" : "sts.amazonaws.com",
-            "${data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_extract_from_arn}:sub" : "system:serviceaccount:kube-system:aws-load-balancer-controller"
-            
+            "${oidc.eks.ap-south-1.amazonaws.com/id/A1B9099EA5B93672CC683D799A83E679}:sub" : "system:serviceaccount:kube-system:aws-load-balancer-controller",
+            "${oidc.eks.ap-south-1.amazonaws.com/id/A1B9099EA5B93672CC683D799A83E679}:aud" : "sts.amazonaws.com"  
           }
         }
          
-      }
+      },
 
-    ]
+    ],
   })
   tags = {
     tag-key = "AWSLoadBalancerControllerIAMPolicy"

@@ -1,1 +1,1 @@
-# eks_cluster = data.terraform_remote_state.eks.outputs.cluster_id
+# eks-cluster = data.terraform_remote_state.eks.outputs.cluster_id
