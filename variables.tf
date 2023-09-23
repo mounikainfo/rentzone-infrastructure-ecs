@@ -42,5 +42,5 @@ variable "container_image" {}
 # route-53 variables
 variable "record_name" {}
 
-# variable "cluster_name" {}
+
 

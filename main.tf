@@ -156,42 +156,4 @@ module "nodegroup" {
   cluster_name              = module.myeks.cluster_name
 }
 
-/* module "eks_example_lb" {
-  source  = "https://github.com/Young-ook/terraform-aws-eks"
-  # version = "1.7.0"
-  # insert the 1 required variable here
-}
- */
-
-/* locals {
-  k8s_cluster_name = "stademo"
-}
-
-data "aws_aws_eks_cluster" "target" {
-  name = local.k8s_cluster_name
-}
-
-data "aws_eks_cluster_auth" "aws_iam_authenticator" {
-  name = data.aws_eks_cluster.target.name
-}
-
-module "alb_controller" {
-  source = "git@github.com:iplabs/terraform-kubernetes-alb-ingress-controller.git"
-  version = "3.1.0"
-  providers = {
-    kubernetes = kubernetes.eks
-    helm = helm.eks
-  }
-  k8s_cluster_type = "eks"
-  k8s_namespace = "kube-system"
-  aws_region_name = ap-south-1
-  k8s_cluster_name = data.aws_eks_cluster.target.name
-}
- */
-/* module "s3-flow" {
-  source = "git@github.com:mounikainfo/terraform-modules.git//s3-store"
-  project_name = local.project_name
-  my_log_test_name = var.my_log_test_name
-} */
-
 

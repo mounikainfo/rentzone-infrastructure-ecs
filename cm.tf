@@ -15,20 +15,3 @@ resource "aws_iam_policy" "example_policy" {
   policy = file("C:/Users/anves/rentzone-infrastructure-ecs/iam_policy.json")
 } 
 
-
-/* resource "aws_eks_iam_service_account" "aws_load_balancer_controller" {
-  name                = "aws-load-balancer-controller"
-  namespace           = "kube-system"
-  cluster_name        = "stademo"
-  role_name           = "AmazonEKSLoadBalancerControllerRole"
-  attach_policy_arns  = "arn:aws:iam::111122223333:policy/AWSLoadBalancerControllerIAMPolicy"
-  approve = true
-  # depends_on          = [aws_eks_cluster.stademo]  # Make sure your EKS cluster resource is defined
-
-  # (Optional) You can specify additional tags if needed
-  tags = {
-    Key = "Value"
-  }
-} */
-
-
