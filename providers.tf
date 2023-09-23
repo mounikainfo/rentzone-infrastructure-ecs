@@ -19,23 +19,6 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = "2.23.0"
     }
-  }
-}
-
-provider "kubernetes" {
-  # Configuration options
-  config_path    = "~/.kube/config"
-  config_context = "arn:aws:eks:ap-south-1:301167228985:cluster/stademo"
-}
-
-
-terraform {
-  required_version = ">= 1.0.0"
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "~> 4.12"
-    }
     helm = {
       source = "hashicorp/helm"
       version = "~> 2.5"
@@ -46,15 +29,37 @@ terraform {
       version = "~> 2.1"
     }
   }
-  backend "s3" {
+}
+
+provider "kubernetes" {
+  # Configuration options
+  config_path    = "~/.kube/config"
+  config_context = "arn:aws:eks:ap-south-1:301167228985:cluster/stademo"
+}
+
+
+/* terraform {
+  required_version = ">= 1.0.0"
+  required_providers {
+    helm = {
+      source = "hashicorp/helm"
+      version = "~> 2.5"
+    }
+    http = {
+      source = "hashicorp/http"
+      #version = "2.1.0"
+      version = "~> 2.1"
+    }
+  }
+  /* backend "s3" {
     bucket = "mt-terraform-aws-eks"
     key    = "dev/aws-lbc/terraform.tfstate"
     region = "ap-south-1"
 
     # For State Locking
     dynamodb_table = "dev-aws-lbc"
-  }
+  } */
 }
 provider "http" {
   # Configuration options
-}
+} */
