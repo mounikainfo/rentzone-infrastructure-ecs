@@ -19,22 +19,24 @@ resource "aws_iam_policy" "lbc_iam_policy" {
 # data "aws_caller_identity" "current" {}
 # aws_eks_cluster.demo.identity[0].oidc[0].issuer
 
-/* resource "aws_iam_role" "lbc_iam_role" {
-  name = "AWSEKSLoadBalancerControllerRole"
+# create iam role
+
+resource "aws_iam_role" "lbc_iam_role" {
+  name = "lbc-iam-role"
   description = "AWS Load Balancer Controller IAM policy"
   assume_role_policy = jsonencode({
     "version": "2012-10-17"
     "statement": [
       {
+        "Action" = "sts:AssumeRoleWithWebIdentity",
         "Effect" = "Allow",
         "principal": {
-          "Federated": "arn:aws:iam::${data.aws_caller_identity.current.id}:oidc-provider/oidc.eks.ap-south-1.amazonaws.com/id/A1B9099EA5B93672CC683D799A83E679"
+          "Federated": "${data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_arn}"
         }
-        "Action" = "sts:AssumeRoleWithWebIdentity",
         "conditions": {
           "StringEquals": {
-            "oidc.eks.ap-south-1.amazonaws.com/id/A1B9099EA5B93672CC683D799A83E679:sub" : "system:serviceaccount:kube-system:aws-load-balancer-controller",
-            "oidc.eks.ap-south-1.amazonaws.com/id/A1B9099EA5B93672CC683D799A83E679:aud" : "sts.amazonaws.com"
+            "${data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_extract_from_arn}:aud" : "sts.amazonaws.com",
+            "${data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_extract_from_arn}:sub" : "system:serviceaccount:kube-system:aws-load-balancer-controller"
             
           }
         }
@@ -46,4 +48,4 @@ resource "aws_iam_policy" "lbc_iam_policy" {
   tags = {
     tag-key = "AWSLoadBalancerControllerIAMPolicy"
   }
-} */
+}

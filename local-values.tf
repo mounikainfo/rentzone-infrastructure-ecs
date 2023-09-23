@@ -1,0 +1,1 @@
+ eks_cluster_name = data.terraform_remote_state.eks.outputs.cluster_id
