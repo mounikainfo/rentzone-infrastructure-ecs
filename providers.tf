@@ -51,15 +51,15 @@ provider "kubernetes" {
       version = "~> 2.1"
     }
   }
-  /* backend "s3" {
+  backend "s3" {
     bucket = "mt-terraform-aws-eks"
     key    = "dev/aws-lbc/terraform.tfstate"
     region = "ap-south-1"
 
     # For State Locking
     dynamodb_table = "dev-aws-lbc"
-  } */
-}
+  }
+} 
 provider "http" {
   # Configuration options
 } */
