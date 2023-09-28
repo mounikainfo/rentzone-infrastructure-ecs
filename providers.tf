@@ -28,6 +28,10 @@ terraform {
       #version = "2.1.0"
       version = "~> 2.1"
     }
+    # ingress-nginx = {
+    #   source  = "ingress-nginx/ingress"
+    #   version = "~> 1.2"  # Replace with the desired version
+    # }
   }
 }
 
@@ -44,6 +48,11 @@ provider "helm" {
   }
 }
 
+# provider "ingress" {
+#   kubernetes {
+#     config_path = "~/.kube/config"  # Path to your Kubernetes config file
+#   }
+# }
 
 
 

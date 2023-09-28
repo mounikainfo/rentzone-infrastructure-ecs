@@ -1,6 +1,6 @@
-resource "kubernetes_deployment" "example" {
+resource "kubernetes_deployment" "example3" {
   metadata {
-    name = "webappdeployment"
+    name = "webappdeployment3"
     /* labels = {
       test = "my-app"
     } */
@@ -11,7 +11,7 @@ resource "kubernetes_deployment" "example" {
 
     selector {
       match_labels = {
-        test = "webapp"
+        test = "webapp3"
       }
     }
 
@@ -19,7 +19,7 @@ resource "kubernetes_deployment" "example" {
       metadata {
         # name = mypod
         labels = {
-          test = "webapp"
+          test = "webapp3"
         }
       }
 

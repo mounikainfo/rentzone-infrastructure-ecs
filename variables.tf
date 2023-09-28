@@ -28,7 +28,7 @@ variable "alternative_names" {
 }
 
 # alb variables
-variable "target_type" {}
+# variable "target_type" {}
 
 # s3 variables
 variable "env_file_bucket_name" {}
