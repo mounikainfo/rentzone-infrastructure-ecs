@@ -25,12 +25,12 @@ resource "aws_iam_role" "lbc_iam_role" {
         Action = "sts:AssumeRoleWithWebIdentity",
         Effect = "Allow",
         Principal = {
-          Federated = "arn:aws:iam::301167228985:oidc-provider/oidc.eks.ap-south-1.amazonaws.com/id/387078837CC1C38F22758F2FD1467BC6"
+          Federated = "arn:aws:iam::301167228985:oidc-provider/oidc.eks.ap-south-1.amazonaws.com/id/04BDBBF84E9028F8613F98CEF91B89CC"
         },
         Condition = {
           StringEquals = {
-            "oidc.eks.ap-south-1.amazonaws.com/id/387078837CC1C38F22758F2FD1467BC6:aud" = "sts.amazonaws.com",
-            "oidc.eks.ap-south-1.amazonaws.com/id/387078837CC1C38F22758F2FD1467BC6:sub" = "system:serviceaccount:kube-system:aws-load-balancer-controller"
+            "oidc.eks.ap-south-1.amazonaws.com/id/04BDBBF84E9028F8613F98CEF91B89CC:aud" = "sts.amazonaws.com",
+            "oidc.eks.ap-south-1.amazonaws.com/id/04BDBBF84E9028F8613F98CEF91B89CC:sub" = "system:serviceaccount:kube-system:aws-load-balancer-controller"
           }
         }
       }
@@ -44,38 +44,3 @@ resource "aws_iam_role_policy_attachment" "lbc_iam_role_policy_attach" {
   policy_arn = aws_iam_policy.lbc_iam_policy.arn
   role       = aws_iam_role.lbc_iam_role.name
 }
-
-# data "aws_caller_identity" "current" {}
-# aws_eks_cluster.demo.identity[0].oidc[0].issuer
-
-# create iam role
-/* resource "aws_iam_role" "lbc_iam_role" {
-  name = "lbc-iam-role"
-  description = "AWS LoadBalancer Controller IAM policy"
-  assume_role_policy = jsonencode({
-    version = "2012-10-17",
-    statement = [
-      {
-        Action = "sts:AssumeRoleWithWebIdentity",
-        Effect = "Allow",
-        principal = {
-          Federated = "https://oidc.eks.ap-south-1.amazonaws.com/id/315EB603DF4B3516CD312BD4FED29486"
-        },
-        condition = {
-          StringEquals = {
-            "oidc.eks.ap-south-1.amazonaws.com/id/315EB603DF4B3516CD312BD4FED29486:sub" : "system:serviceaccount:kube-system:aws-load-balancer-controller",
-            "oidc.eks.ap-south-1.amazonaws.com/id/315EB603DF4B3516CD312BD4FED29486:aud" : "sts.amazonaws.com"
-          }
-        }
-      }
-    ]
-  })
-  tags = {
-    tag-key = "AWSLoadBalancerControllerIAMPolicy"
-  }
-}
-resource "aws_iam_role_policy_attachment" "lbc_iam_role_policy_attach" {
-  policy_arn = aws_iam_policy.lbc_iam_policy.arn
-  role       = aws_iam_role.lbc_iam_role.name
-} */
-

@@ -40,38 +40,10 @@ provider "kubernetes" {
 provider "helm" {
   kubernetes {
     config_path = "~/.kube/config" 
+    # cluster_ca_certificate = "base64decode(arn:aws:iam::301167228985:oidc-provider/oidc.eks.ap-south-1.amazonaws.com/id/04BDBBF84E9028F8613F98CEF91B89CC)"
   }
 }
 
 
 
 
-
-# eks_cluster_name = data.terraform_remote_state.eks.outputs.cluster_id
-
-
-/* terraform {
-  required_version = ">= 1.0.0"
-  required_providers {
-    helm = {
-      source = "hashicorp/helm"
-      version = "~> 2.5"
-    }
-    http = {
-      source = "hashicorp/http"
-      #version = "2.1.0"
-      version = "~> 2.1"
-    }
-  }
-  backend "s3" {
-    bucket = "mt-terraform-aws-eks"
-    key    = "dev/aws-lbc/terraform.tfstate"
-    region = "ap-south-1"
-
-    # For State Locking
-    dynamodb_table = "dev-aws-lbc"
-  }
-} 
-provider "http" {
-  # Configuration options
-} */
